@@ -1,0 +1,15 @@
+package net.siim.manager.enumeration;
+
+public enum TipoArqueoE {
+	INGRESO_VENTA((short)1),
+	EGRESO_REVERSION_VENTA((short)2),
+	INGRESO_GENERAL((short)3),
+	EGRESO_GENERAL((short)4);
+	private final Short tipo;
+	private TipoArqueoE(Short tipo) {
+		this.tipo = tipo;
+	}
+	public Short getTipo() {
+		return tipo;
+	}
+}
