@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="Ing. Carlos Franz Gutierrez Gutierrez">
-	<title>MiaSuper</title>
+	<title>Alcaldia</title>
 	<link rel="icon" type="image/x-icon" href="../../icon/favicon.ico">
 	<link rel="stylesheet" href="/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/css/font-awesome.min.css" />
@@ -22,16 +22,16 @@
 <!--		</div>-->
 		<div class="login-box-body">
 			<h1 align="center" class="w3-xxxlarge"><span class="fa fa-building"></span></h1>
-			<p class="login-box-msg custom-bolder">ACCESO A SUCURSAL</p>
+			<p class="login-box-msg custom-bolder">ACCESO AL MUNICIPIO</p>
 			<div class="form-group has-feedback">
 				<label class="font-weight-bold">Seleccionar sucursal a ingresar</label>
 				<select class="form-control input-lg" id="sucursalSeleccion" name="sucursal" data-fv-notempty="true" required>
-					<option value="">Seleccionar sucursal...</option>
+					<option value="">Seleccionar municipio...</option>
 					<option th:each="s,ind : ${sucursales}" th:value="${ind.index}" th:text="${s.sucursal.nombre}"></option>
 				</select>
 			</div>
 			<div class="social-auth-links text-center">
-				<button type="button" class="btn btn-lg btn-block btn-facebook" id="btnEnviar"> Aceptar</button>
+				<button type="button" class="btn btn-lg btn-block btn-success" id="btnEnviar"> Aceptar</button>
 				<button type="button" class="btn btn-lg btn-block btn-google" onclick="location.href='../principal/salir'"> Salir de Sistema</button>
 			</div>
 		</div>
