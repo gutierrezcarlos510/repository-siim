@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeDeudaPorBarrio" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIIM"/>
+	<property name="net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.1" value="pageHeader"/>
+	<property name="net.sf.jasperreports.export.xls.exclude.origin.band.2" value="pageFooter"/>
+	<property name="net.sf.jasperreports.export.xls.exclude.origin.band.3" value="lastPageFooter"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.ignore.graphics" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.ignore.cell.border" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="barrio" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select dg.*,p.nombrecall,p.numcasa from view_deudor_gestion dg 
+inner join satnombr p on p.id = dg.id
+where dg.barrio = $P{barrio}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="persona" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="persona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<fieldDescription><![CDATA[nombre de producto]]></fieldDescription>
+	</field>
+	<field name="paterno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="paterno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="materno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="materno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="documento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="documento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="tipodocum" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="tipodocum"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="zona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="zona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="barrio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="barrio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="xzona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="xzona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="xbarrio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="xbarrio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="id_inmu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_inmu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="xtipo_inmueble" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="xtipo_inmueble"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="ultima_gestion" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ultima_gestion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
+	<field name="nombrecall" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombrecall"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="satnombr"/>
+	</field>
+	<field name="numcasa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="numcasa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="satnombr"/>
+	</field>
+	<variable name="no" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<columnHeader>
+		<band height="30">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="0" y="0" width="20" height="30" forecolor="#000000" uuid="c7a0e8e7-ecf4-4d67-ad1c-c53b94bf758b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7817a7d0-2af8-46bd-bb12-a6045f201437"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="205" y="0" width="184" height="30" forecolor="#000000" uuid="ba230a23-528d-45c4-bc09-97161cf93727">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bf13e2-58e3-4219-8b9b-1de05323a53e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Completo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="389" y="0" width="60" height="30" forecolor="#000000" uuid="241e0cda-aa1e-4839-ae33-31481f791fb8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41edf0ad-a577-493e-bdb4-f45dd1716327"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="449" y="0" width="34" height="30" forecolor="#000000" uuid="63a17f9b-8be9-4569-b35c-5661c76c5459">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67b0f38d-05cd-411d-8759-77312f83c164"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="484" y="0" width="95" height="30" forecolor="#000000" uuid="f7e0cd31-ba82-43ae-b17c-2dd8ae77ded6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848500e6-32fb-4c77-8417-dcfdbb803255"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Barrio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="579" y="0" width="223" height="30" forecolor="#000000" uuid="daf05caa-eec8-4af3-a3f4-b294620b9d54">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5c3f586-f121-4546-9278-4a660f6023e9"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Calle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="170" y="0" width="35" height="30" forecolor="#000000" uuid="51418050-1538-40c2-b30c-9b5335b9e77e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f7ea40e-0b7a-45e7-ab7f-838055399317"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ultima Gestion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="60" y="0" width="110" height="30" forecolor="#000000" uuid="42b08540-8bed-49a7-ab28-582341afb366">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd6aa8e8-6a1f-4f27-98ca-93232590c9a6"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Inmueble]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="20" y="0" width="40" height="30" forecolor="#000000" uuid="692c37a1-1b9c-4265-8300-11fba76f99ed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3e4eb13-1fff-4c01-a2f0-9c139923cf66"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P.M.C.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="0" y="0" width="20" height="20" uuid="3b5c1246-41e9-4700-ab49-6ed0170cbd67">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7817a7d0-2af8-46bd-bb12-a6045f201437"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="205" y="0" width="184" height="20" uuid="63bf76bd-4388-44bf-84ba-aa84f54a7d02">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bf13e2-58e3-4219-8b9b-1de05323a53e"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paterno}+" "+$F{materno}+" "+$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="389" y="0" width="60" height="20" uuid="871c5f02-64f8-4572-971b-0e2d31390688">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41edf0ad-a577-493e-bdb4-f45dd1716327"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{documento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="449" y="0" width="34" height="20" uuid="642ceb46-d15a-46ae-b407-7a59812f5aa7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67b0f38d-05cd-411d-8759-77312f83c164"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{xzona}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="60" y="0" width="110" height="20" uuid="98d9964e-2f63-4680-9e88-2496fbb44cc6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd6aa8e8-6a1f-4f27-98ca-93232590c9a6"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_inmu}+ " - "+$F{xtipo_inmueble}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="484" y="0" width="95" height="20" uuid="766de48d-8346-4f15-99f8-07bc531e2dfb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848500e6-32fb-4c77-8417-dcfdbb803255"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{xbarrio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="579" y="0" width="223" height="20" uuid="24584aec-00b8-4f5b-81b0-9fdd3d92fe62">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5c3f586-f121-4546-9278-4a660f6023e9"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecall}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="170" y="0" width="35" height="20" uuid="151f94c1-86dd-4e8e-b4b1-d1db4cd3bad1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb621f7b-624e-4421-a7cc-14c625a303c7"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ultima_gestion}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="20" y="0" width="40" height="20" uuid="61e74fe6-1fc4-4bcd-a792-780a03957f4c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3e4eb13-1fff-4c01-a2f0-9c139923cf66"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

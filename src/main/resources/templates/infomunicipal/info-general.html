@@ -1,0 +1,369 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Admin SIIM</title>
+    <link rel="stylesheet" href="../../css/bootstrap4.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <style>body {
+        color: #000;
+        overflow-x: hidden;
+        height: 100%;
+        background-color: #B0BEC5;
+        background-repeat: no-repeat
+    }
+    .tdInfo {
+        padding-right: 15px !important;
+        text-align: right !important;
+        font-weight: bolder !important;
+        font-size: 12px;
+    }
+    .card0 {
+        box-shadow: 0px 4px 8px 0px #757575;
+        border-radius: 0px
+    }
+
+    .card2 {
+        margin: 0px 40px
+    }
+
+    .logo {
+        width: 400px;
+        height: 200px;
+        margin-top: 20px;
+        margin-left: 35px
+    }
+
+    .image {
+        width: 520px;
+    }
+
+    .border-line {
+        border-right: 1px solid #EEEEEE
+    }
+
+    .facebook {
+        background-color: #3b5998;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
+
+    .twitter {
+        background-color: #1DA1F2;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
+
+    .linkedin {
+        background-color: #2867B2;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
+
+    .line {
+        height: 1px;
+        width: 45%;
+        background-color: #E0E0E0;
+        margin-top: 10px
+    }
+
+    .or {
+        width: 10%;
+        font-weight: bold
+    }
+
+    .text-sm {
+        font-size: 14px !important
+    }
+
+    ::placeholder {
+        color: #BDBDBD;
+        opacity: 1;
+        font-weight: 300
+    }
+
+    :-ms-input-placeholder {
+        color: #BDBDBD;
+        font-weight: 300
+    }
+
+    ::-ms-input-placeholder {
+        color: #BDBDBD;
+        font-weight: 300
+    }
+
+    input,
+    textarea {
+        padding: 10px 12px 10px 12px;
+        border: 1px solid lightgrey;
+        border-radius: 2px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #2C3E50;
+        font-size: 14px;
+        letter-spacing: 1px
+    }
+
+    input:focus,
+    textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #304FFE;
+        outline-width: 0
+    }
+
+    button:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        outline-width: 0
+    }
+
+    a {
+        color: inherit;
+        cursor: pointer
+    }
+
+    .btn-blue {
+        background-color: #00a65a;
+        width: 150px;
+        color: #fff;
+        border-radius: 2px
+    }
+
+    .btn-blue:hover {
+        background-color: #008d4c;
+        cursor: pointer
+    }
+
+    .bg-blue {
+        color: #fff;
+        background-color: #008d4c
+    }
+
+    @media screen and (max-width: 991px) {
+        .logo {
+            margin-left: 0px
+        }
+
+        .image {
+            width: 300px;
+            height: 220px
+        }
+
+        .border-line {
+            border-right: none
+        }
+
+        .card2 {
+            border-top: 1px solid #EEEEEE !important;
+            margin: 0px 15px
+        }
+    }</style>
+</head>
+<body class='snippet-body'>
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <form id="formQuery" action="../infomunicipal/consultar" method="post">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h6 class="col-12 mb-0 mr-4 mt-2 text-center">Honorable Alcaldia de Bermejo Gestion 2022</h6>
+                        <h6 class="col-12 mb-0 mr-4 mt-2 text-center">Consulta Informaci&oacute;n de Inmueble</h6>
+                        <div class="col-12 mb-0 mr-4 mt-2 text-center">
+                            <img class="" src="/img/consulta_deuda.svg" width="100">
+                        </div>
+                    </div>
+                    <div class="row mb-4 px-3">
+                        <h2 class="col-12 mb-0 mr-4 mt-2 text-center">Formulario de Consulta</h2>
+                    </div>
+                    <div class="row px-3"><label class="mb-1">
+                        <h6 class="mb-0 text-sm">Documento de identidad</h6>
+                    </label> <input class="mb-4" type="text" id="documento" name="documento" autocomplete="off" placeholder="Escriba solo su numero de documento" >
+                    </div>
+                    <div class="row px-3"><label class="mb-1">
+                        <h6 class="mb-0 text-sm">P.M.C.</h6>
+                    </label> <input type="text" id="pmc" name="pmc" autocomplete="off" placeholder="Escriba su codigo PMC si es que lo tiene"></div>
+                    <div class="row mb-3 px-3 py-3">
+                        <div class="col-12 text-right">
+                            <button type="submit" class="btn btn-blue text-center">CONSULTAR</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <br>
+                <div id="areaMensajeError" class="alert alert-danger" style="display: none;">
+                </div>
+                <table style="display: none;" id="tablaPersona" class="table table-sm">
+                    <tr>
+                        <td>P.M.C.</td>
+                        <td aria-label="id" class="tdInfo"></td>
+                        <td>No. Documento</td>
+                        <td aria-label="documento" class="tdInfo"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Nombres</td>
+                        <td colspan="2" aria-label="nombre" class="tdInfo"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Paterno</td>
+                        <td colspan="2" aria-label="paterno" class="tdInfo"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Materno</td>
+                        <td colspan="2" aria-label="materno" class="tdInfo"></td>
+                    </tr>
+                </table>
+                <table style="display: none;" id="tablaConsulta" class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center">
+                            Detalle de Consulta
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripcion</th>
+                        <th>Gesti&oacute;n</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bg-blue py-4">
+            <div class="row px-3"><small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2022. Sistema desarrollado en Bermejo - Tarija - Bolivia por SIBOL</small>
+                <div class="social-contact ml-4 ml-sm-auto"><span class="fa fa-facebook mr-4 text-sm"></span> <span
+                        class="fa fa-google-plus mr-4 text-sm"></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery-3.5.1.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/sweetalert2.all.min.js"></script>
+<script src="/js/dev/loading.js"></script>
+<script src="/js/jquery.loadJSON.js"></script>
+<script type="text/javascript">
+    $("#formQuery").submit(function (e) {
+        e.preventDefault(); // stops the default action
+        $('#areaMensajeError').hide();
+        $('#tablaConsulta > tbody').html('');
+        $('#tablaPersona > tbody').loadJSON({});
+        $('#tablaPersona').hide();
+        $('#tablaConsulta').hide();
+        //$("#loader").show(); // shows the loading screen
+        let doc = $('#documento').val();
+        let pmc = $('#pmc').val();
+        if(!doc && !pmc) {
+            Swal.fire({
+                title: "Invalido",
+                text: "Ingrese uno de los campos requeridos"
+            });
+            return;
+        }
+        Swal.fire({
+            title: "Consultando...",
+            text: "Por favor espere",
+            imageUrl: "/images/loading.gif",
+            showConfirmButton: false,
+            allowOutsideClick: false
+        });
+        $.ajax({
+            url: '../infomunicipal/consulta',
+            type: 'POST',
+            data: $('#formQuery').serialize(),
+            success: function (resp) {
+                Swal.fire({
+                    title: "Finalizado!",
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                $('#formQuery').trigger("reset");
+                if(resp.status) {
+                    console.log(resp.data);
+                    if(resp.data && resp.data.length > 0) {
+                        $('#tablaPersona').loadJSON(resp.data[0]);
+                        resp.data.forEach(it => {
+                            if(it.ultimaGestion) {
+                                for (let i = it.ultimaGestion + 1; i < 2021; i++) {
+                                    let row = $('<tr></tr>');
+                                    $('<td>'+it.idInmu+'</td>').appendTo(row);
+                                    $('<td>'+it.xtipoInmueble+'</td>').appendTo(row);
+                                    $('<td>'+i+'</td>').appendTo(row);
+                                    $('#tablaConsulta > tbody:last').append(row);
+                                }
+                            } else {
+                                let row = $('<tr></tr>');
+                                $('<td>'+it.idInmu+'</td>').appendTo(row);
+                                $('<td>'+it.xtipoInmueble+'</td>').appendTo(row);
+                                $('<td>Ninguno</td>').appendTo(row);
+                                $('#tablaConsulta > tbody:last').append(row);
+                            }
+                        });
+                        $('#tablaPersona').show(500);
+                        $('#tablaConsulta').show(500);
+                    } else {
+                        $('#areaMensajeError').html('Sin deudas');
+                        $('#areaMensajeError').show(500);
+                    }
+                } else {
+                    $('#areaMensajeError').html(resp.msg);
+                    $('#areaMensajeError').show(500);
+                }
+            },
+            error: function (jqXHR, exception) {
+                Swal.fire({
+                    title: "Finalizado!",
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                let msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                $('#areaMensajeError').html(msg);
+                $('#areaMensajeError').show(500);
+            }
+        });
+    });
+</script>
+</body>
+</html>

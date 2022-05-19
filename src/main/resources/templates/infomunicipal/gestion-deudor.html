@@ -1,0 +1,631 @@
+<style>
+    .tdInfo {
+        padding-top: 15px !important;
+        padding-right: 15px !important;
+        text-align: right !important;
+        font-weight: bolder !important;
+        font-size: 14px;
+    }
+</style>
+<section xmlns:th="http://www.thymeleaf.org">
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <div id="tree">
+        </div>
+        <div id="modalVer" class="modal fade" data-backdrop="static">
+            <div class="modal-dialog" style="min-width: 95%;min-height: 500px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><span class="fa fa-chevron-circle-right"></span> Informaci&oacute;n del Ciudadano</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="w3-table-all w3-tiny" id="vistaPersona">
+                                <tbody>
+                                    <tr>
+                                        <td>P.M.C</td>
+                                        <td class="tdInfo" aria-label="id"></td>
+                                        <td>ID. Inmueble</td>
+                                        <td class="tdInfo" aria-label="idInmu"></td>
+                                        <td>Tipo Inmueble</td>
+                                        <td class="tdInfo" aria-label="xtipoInmueble"></td>
+                                        <td>Tipo de documento</td>
+                                        <td class="tdInfo" aria-label="xtipoDocumento"></td>
+                                        <td>No. Documento</td>
+                                        <td class="tdInfo" aria-label="documento"></td>
+                                        <td>Nombre</td>
+                                        <td class="tdInfo" aria-label="nombre"></td>
+                                        <td>Apellido Paterno</td>
+                                        <td class="tdInfo" aria-label="paterno"></td>
+                                        <td>Apellido Materno</td>
+                                        <td class="tdInfo" aria-label="materno"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipo de Persona</td>
+                                        <td class="tdInfo" aria-label="xpersona"></td>
+                                        <td>Zona</td>
+                                        <td class="tdInfo" aria-label="xzona"></td>
+                                        <td>Barrio</td>
+                                        <td class="tdInfo" aria-label="xbarrio"></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br><br>
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab_0" data-toggle="tab">Inmuebles</a></li>
+                                    <li><a href="#tab_1" data-toggle="tab">Liquidaciones</a></li>
+                                    <li><a href="#tab_2" data-toggle="tab">Recaudaciones</a></li>
+                                    <li><a href="#tab_3" data-toggle="tab">Tr&aacute;mites</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_0">
+                                        <table id="tablaInmueble" class="w3-table-all w3-tiny dt-responsive" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th class="all">ID</th>
+                                                <th class="desktop">Tipo</th>
+                                                <th class="desktop">Zona</th>
+                                                <th class="all">Barrio</th>
+                                                <th class="desktop">Tipo de Calle</th>
+                                                <th class="all">Calle</th>
+                                                <th class="desktop">No.Casa</th>
+                                                <th class="desktop">Servicios B&aacute;sicos</th>
+                                                <th class="desktop">Tipo <br>Material</th>
+                                                <th class="desktop">Superficie <br> Total</th>
+                                                <th class="none">Sup. <br>Construcci&oacute;n</th>
+                                                <th class="none">Ant. <br>Construcci&oacute;n</th>
+                                                <th class="none">Tipo <br>Construcci&oacute;n</th>
+                                                <th class="none">Catastral</th>
+                                                <th class="none">Estado</th>
+                                                <th class="none">Inclinac</th>
+                                                <th class="none">MatVias</th>
+                                                <th class="none">SupHa</th>
+                                                <th class="none">ValorHa</th>
+                                                <th class="none">Imchk</th>
+                                                <th class="none">calidad</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab_1">
+                                        <table id="tablaLiquidacion" class="w3-table-all w3-tiny dt-responsive" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th class="all">Inmueble</th>
+                                                <th class="desktop">Tipo <br>Inmueble</th>
+                                                <th class="desktop">Fecha de Pago</th>
+                                                <th class="none">Val Tab</th>
+                                                <th class="none">Factor</th>
+                                                <th class="none">Valor T</th>
+                                                <th class="none">Valor cm2</th>
+                                                <th class="none">Valor vi</th>
+                                                <th class="none">fd an</th>
+                                                <th class="none">Base <br> imponible</th>
+                                                <th class="desktop">importe <br>neto</th>
+                                                <th class="none">D10</th>
+                                                <th class="none">Mant. Val.</th>
+                                                <th class="none">Interes</th>
+                                                <th class="none">Multa mora</th>
+                                                <th class="none">Deb. For</th>
+                                                <th class="none">San. Adm.</th>
+                                                <th class="none">Monto</th>
+                                                <th class="none">Por. form.</th>
+                                                <th class="none">Monto P</th>
+                                                <th class="none">Fecha vencimiento</th>
+                                                <th class="none">Fecha Imp.</th>
+                                                <th class="none">Fecodo</th>
+                                                <th class="none">Cotido</th>
+                                                <th class="none">TP</th>
+                                                <th class="none">Descontado</th>
+                                                <th class="desktop">Gestion</th>
+                                                <th class="none">Credito</th>
+                                                <th class="none">Saldo Favor</th>
+                                                <th class="none">Usuario</th>
+                                                <th class="none">Control</th>
+                                                <th class="none">Cuota</th>
+                                                <th class="none">UFV</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                        <table id="tablaRecaudacion" class="w3-table w3-tiny dt-responsive" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th class="all">Inmueble</th>
+                                                <th class="desktop">Tipo <br>Inmueble</th>
+                                                <th class="desktop">Fecha de Pago</th>
+                                                <th class="none">Val Tab</th>
+                                                <th class="none">Factor</th>
+                                                <th class="none">Valor T</th>
+                                                <th class="none">Valor cm2</th>
+                                                <th class="none">Valor vi</th>
+                                                <th class="none">fd an</th>
+                                                <th class="none">Base <br> imponible</th>
+                                                <th class="desktop">importe <br>neto</th>
+                                                <th class="none">D10</th>
+                                                <th class="none">Mant. Val.</th>
+                                                <th class="none">Interes</th>
+                                                <th class="none">Multa mora</th>
+                                                <th class="none">Deb. For</th>
+                                                <th class="none">San. Adm.</th>
+                                                <th class="none">Monto</th>
+                                                <th class="none">Por. form.</th>
+                                                <th class="none">Monto P</th>
+                                                <th class="none">Fecha vencimiento</th>
+                                                <th class="none">Fecha Imp.</th>
+                                                <th class="none">Fecodo</th>
+                                                <th class="none">Cotido</th>
+                                                <th class="none">TP</th>
+                                                <th class="none">Descontado</th>
+                                                <th class="desktop">Gestion</th>
+                                                <th class="none">Credito</th>
+                                                <th class="none">Saldo Favor</th>
+                                                <th class="none">Usuario</th>
+                                                <th class="none">Control</th>
+                                                <th class="none">Cuota</th>
+                                                <th class="none">UFV</th>
+                                                <th class="desktop">Fecha <br> de pago <br> original</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab_3">
+                                        <table id="tablaTramite" class="w3-table w3-tiny dt-responsive" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th class="all">Form.</th>
+                                                <th class="all">Fecha</th>
+                                                <th class="all">Hora</th>
+                                                <th class="all">Orden</th>
+                                                <th class="all">Usuario</th>
+                                                <th class="desktop">Nombre</th>
+                                                <th class="desktop">Ap.Paterno</th>
+                                                <th class="desktop">Ap.Materno</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cerrar</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+        <div class="row">
+            <div class="col-md-12">
+                <h4><span class="fa fa-ellipsis-v"></span> Lista de Ciudadanos Deudores </h4>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <table id="tabla" class="table table-bordered dt-responsive table-hover" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="desktop" width="70px">P.M.C.</th>
+                    <th class="desktop" width="70px">Inmueble</th>
+                    <th class="desktop" width="120px">Tipo <br> Inmueble</th>
+                    <th class="desktop" width="120px">No.Documento</th>
+                    <th class="all">Nombre</th>
+                    <th class="desktop">Ap. Paterno</th>
+                    <th class="desktop">Ap. Materno</th>
+                    <th class="desktop">Zona</th>
+                    <th class="desktop">Barrio</th>
+                    <th class="desktop">&Uacute;ltima <br>Gesti&oacute;n</th>
+                    <th class="all">Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+<script type="text/javascript" th:inline="none">
+    var dataResp = {
+        idSelected : 0,
+        widthSearch : [80,50,80,70,70,70,70,70,70,50]
+    }
+    function enviarWhatsappClave(obj){
+        let dataSend = '-- NOTIFICACION  --\n';
+        dataSend += 'Alcaldia de Bermejo Gestion 2022\n';
+        dataSend += 'T. Persona: *'+obj.xtipoPersona+'*\n';
+        dataSend += 'Ciudadano: '+obj.nombre + ' '+obj.paterno + ' '+obj.materno+'\n';
+        dataSend += 'T. Documento: '+obj.xtipoDocumento +'\n';
+        dataSend += 'No. Documento: '+obj.documento +'\n\n\n';
+
+        dataSend += 'La presente informacion es de forma  privada y personalizada para el ciudadano con el fin de informa su estado de impuestos pendientes: \n\n';
+
+        let dataEncode = encodeURI(dataSend);
+        window.open('https://wa.me/?text='+dataEncode, '_blank');
+    }
+    $(document).ready(function() {
+        $('#tabla').dataTable({
+            "dom": "<'row'<'col-sm-12'tr>><'row'<'col-sm-5 w3-tiny'i><'col-sm-7 w3-tiny'p>>",
+            "ajax": {
+                "type": "POST",
+                "url": "../infomunicipal/listarDeudores",
+                "data": function(d) {}
+            },
+            "columnDefs":[{targets: [10],className:'text-right'}],
+            "ordering":true,
+            "order":[[0,'desc']],
+            "columns": [{
+                "data": "id","name":"id"
+            }, {
+                "data": "idInmu","name":"id_inmu"
+            }, {
+                "data": "xtipoInmueble","name":"xtipo_inmueble"
+            }, {
+                "data": "documento","name":"documento"
+            }, {
+                "data": "nombre","name":"nombre"
+            }, {
+                "data": "paterno","name":"paterno"
+            }, {
+                "data": "materno","name":"materno"
+            }, {
+                "data": "xzona","name":"xzona"
+            }, {
+                "data": "xbarrio","name":"xbarrio"
+            }, {
+                "data": "ultimaGestion","name":"ultima_gestion"
+            }, {
+                "data": "id","name":"id"
+            }],
+            "createdRow": function(row, data, index) {
+                let btnGroup = '<div class="btn-group btn-group-xs">';
+                btnGroup += '<button class="btn btn-sm btn-primary ver" ><i class="glyphicon glyphicon-info-sign"></i><br>revisar</button>';
+                btnGroup += '<button class="btn btn-sm btn-success enviar"><i class="fa fa-whatsapp"></i><br>enviar</button>';
+                btnGroup += '</div>';
+                $('td', row).eq(10).html(btnGroup);
+            },
+            "drawCallback": function(settings) {
+                $('.ver').click(function(){
+                    let row = $('#tabla').DataTable().row($(this).closest('tr')).data();
+                    dataResp.idSelected = row.id;
+                    if(row.fechaNac) {
+                        row.xfechaNac = moment(row.fechaNac).format('DD/MM/YYYY');
+                    }
+                    if(row.fecReg) {
+                        row.xfecReg = moment(row.fecReg).format('DD/MM/YYYY');
+                    }
+                    $('#vistaPersona').loadJSON(row);
+                    $('#tablaInmueble').dataTable().fnDraw();
+                    $('#tablaLiquidacion').dataTable().fnDraw();
+                    $('#tablaRecaudacion').dataTable().fnDraw();
+                    $('#tablaTramite').dataTable().fnDraw();
+                    $('#modalVer').modal('show');
+                });
+                $('.enviar').click(function(){
+                    let row = $('#tabla').DataTable().row($(this).closest('tr')).data();
+                    enviarWhatsappClave(row)
+                });
+            },
+            "initComplete": function(settings, json){
+                $('#tabla_filter input').unbind();
+                $('#tabla_filter input').bind('keyup', function(e){
+                    if( e.keyCode == 13) {
+                        $('#tabla').DataTable().search(this.value).draw();
+                    }
+                })
+            }
+        });
+        if(!UtilBrowser.isMobil()) {
+            $('#tabla thead tr:last-child').clone(true).appendTo('#tabla thead');
+            $('#tabla thead tr:eq(1) th').each(function(i) {
+                switch (i) {
+                    case 10:
+                        $(this).html('');
+                        break;
+                    default:
+                        let title = $(this).text();
+                        $(this).html('<input type="text" class="w3-medium" style="width: '+dataResp.widthSearch[i]+'%"  />');
+                        $('input', this).on('keyup', function(e) {
+                            if (e.keyCode == 13 || this.value === '') {
+                                if ($('#tabla').DataTable().column(i).search() !== this.value) {
+                                    $('#tabla').DataTable().order([i, 'asc']);
+                                    $('#tabla').DataTable().column(i).search(this.value).draw();
+                                }
+                            }
+                        });
+                }
+            });
+        }
+        $('#tablaInmueble').DataTable({
+            "dom": "<'row'<'col-sm-12'tr>><'row'<'col-sm-5 w3-tiny'i><'col-sm-7 w3-tiny'p>>",
+            "ajax": {
+                "type": "POST",
+                "url": "../infomunicipal/listarInmueble",
+                "data": function(d) {
+                    d.id = dataResp.idSelected;
+                }
+            },
+            "ordering":true,
+            "order":[[0,'asc']],
+            "columns": [{
+                "data": "idInmu","name":"id_inmu"
+            }, {
+                "data": "xtipoInmueble","name":"xtipo_inmueble"
+            }, {
+                "data": "xzona","name":"xzona"
+            }, {
+                "data": "xbarrio","name":"xbarrio"
+            }, {
+                "data": "xtipoCalle","name":"xtipo_calle"
+            }, {
+                "data": "nombrecall","name":"nombrecall"
+            }, {
+                "data": "numcasa","name":"numcasa"
+            }, {
+                "data": "luz","name":"luz"
+            }, {
+                "data": "xmaterialvia","name":"xmaterialvia"
+            }, {
+                "data": "superficie","name":"superficie"
+            }, {
+                "data": "supConst","name":"sup_const"
+            }, {
+                "data": "antConst","name":"ant_const"
+            }, {
+                "data": "xinclinacion","name":"xinclinacion"
+            }, {
+                "data": "catastral","name":"catastral"
+            }, {
+                "data": "estado","name":"estado"
+            }, {
+                "data": "inclinac","name":"inclinac"
+            }, {
+                "data": "matVias","name":"mat_vias"
+            }, {
+                "data": "supHa","name":"sup_ha"
+            }, {
+                "data": "valorHa","name":"valor_ha"
+            }, {
+                "data": "imchk","name":"imchk"
+            }, {
+                "data": "calidad","name":"calidad"
+            }],
+            "createdRow": function(row, data, index) {
+                let xservicios = [];
+                if(data.luz && data.luz === 1){
+                    xservicios.push('luz');
+                }
+                if(data.agua && data.agua === 1){
+                    xservicios.push('agua');
+                }
+                if(data.alcantari && data.alcantari === 1){
+                    xservicios.push('alcantarillado');
+                }
+                if(data.telefono && data.telefono === 1){
+                    xservicios.push('telefono');
+                }
+                $('td', row).eq(7).html(xservicios.join('-'));
+            },
+            "drawCallback": function(settings) {}
+        });
+        $('#tablaLiquidacion').DataTable({
+            "dom": "<'row'<'col-sm-12'tr>><'row'<'col-sm-5 w3-tiny'i><'col-sm-7 w3-tiny'p>>",
+            "ajax": {
+                "type": "POST",
+                "url": "../infomunicipal/listarLiquidacion",
+                "data": function(d) {
+                    d.id = dataResp.idSelected;
+                }
+            },
+            "ordering":true,
+            "order":[[0,'asc']],
+            "columns": [{
+                "data": "idInmu","name":"id_inmu"
+            }, {
+                "data": "xtipoInmueble","name":"xtipo_inmueble"
+            }, {
+                "data": "pagado","name":"pagado"
+            }, {
+                "data": "valTab","name":"val_tab"
+            }, {
+                "data": "factor","name":"factor"
+            }, {
+                "data": "valorT","name":"valor_t"
+            }, {
+                "data": "valcm2","name":"valcm2"
+            }, {
+                "data": "valorVi","name":"valor_vi"
+            }, {
+                "data": "fdAn","name":"fd_an"
+            }, {
+                "data": "baseImp","name":"base_imp"
+            }, {
+                "data": "impNeto","name":"imp_neto"
+            }, {
+                "data": "d10","name":"d10"
+            }, {
+                "data": "mantVal","name":"mant_val"
+            }, {
+                "data": "interes","name":"interes"
+            }, {
+                "data": "mulMora","name":"mul_mora"
+            }, {
+                "data": "debFor","name":"deb_for"
+            }, {
+                "data": "sanAdm","name":"san_adm"
+            }, {
+                "data": "monto","name":"monto"
+            }, {
+                "data": "porForm","name":"por_form"
+            }, {
+                "data": "montoP","name":"monto_p"
+            }, {
+                "data": "fechVenc","name":"fech_venc"
+            }, {
+                "data": "fechImp","name":"fech_imp"
+            }, {
+                "data": "fecodo","name":"fecodo"
+            }, {
+                "data": "cotido","name":"cotido"
+            }, {
+                "data": "tp","name":"tp"
+            }, {
+                "data": "descont","name":"descont"
+            }, {
+                "data": "gestion","name":"gestion"
+            }, {
+                "data": "credito","name":"credito"
+            }, {
+                "data": "salFavor","name":"sal_favor"
+            }, {
+                "data": "usuario","name":"usuario"
+            }, {
+                "data": "control","name":"control"
+            }, {
+                "data": "cuota","name":"cuota"
+            }, {
+                "data": "cotiufv","name":"cotiufv"
+            }],
+            "createdRow": function(row, data, index) {
+                if(data.pagado) {
+                    $('td', row).eq(2).html(moment(data.pagado).format('DD/MM/YYYY') + ' '+data.hora);
+                }
+            },
+            "drawCallback": function(settings) {}
+        });
+        $('#tablaRecaudacion').DataTable({
+            "dom": "<'row'<'col-sm-12'tr>><'row'<'col-sm-5 w3-tiny'i><'col-sm-7 w3-tiny'p>>",
+            "ajax": {
+                "type": "POST",
+                "url": "../infomunicipal/listarRecaudacionInmueble",
+                "data": function(d) {
+                    d.id = dataResp.idSelected;
+                }
+            },
+            "ordering":true,
+            "order":[[0,'asc']],
+            "columns": [{
+                "data": "idInmu","name":"id_inmu"
+            }, {
+                "data": "xtipoInmueble","name":"xtipo_inmueble"
+            }, {
+                "data": "pagado","name":"pagado"
+            }, {
+                "data": "valTab","name":"val_tab"
+            }, {
+                "data": "factor","name":"factor"
+            }, {
+                "data": "valorT","name":"valor_t"
+            }, {
+                "data": "valcm2","name":"valcm2"
+            }, {
+                "data": "valorVi","name":"valor_vi"
+            }, {
+                "data": "fdAn","name":"fd_an"
+            }, {
+                "data": "baseImp","name":"base_imp"
+            }, {
+                "data": "impNeto","name":"imp_neto"
+            }, {
+                "data": "d10","name":"d10"
+            }, {
+                "data": "mantVal","name":"mant_val"
+            }, {
+                "data": "interes","name":"interes"
+            }, {
+                "data": "mulMora","name":"mul_mora"
+            }, {
+                "data": "debFor","name":"deb_for"
+            }, {
+                "data": "sanAdm","name":"san_adm"
+            }, {
+                "data": "monto","name":"monto"
+            }, {
+                "data": "porForm","name":"por_form"
+            }, {
+                "data": "montoP","name":"monto_p"
+            }, {
+                "data": "fechVenc","name":"fech_venc"
+            }, {
+                "data": "fechImp","name":"fech_imp"
+            }, {
+                "data": "fecodo","name":"fecodo"
+            }, {
+                "data": "cotido","name":"cotido"
+            }, {
+                "data": "tp","name":"tp"
+            }, {
+                "data": "descont","name":"descont"
+            }, {
+                "data": "gestion","name":"gestion"
+            }, {
+                "data": "credito","name":"credito"
+            }, {
+                "data": "salFavor","name":"sal_favor"
+            }, {
+                "data": "usuario","name":"usuario"
+            }, {
+                "data": "control","name":"control"
+            }, {
+                "data": "cuota","name":"cuota"
+            }, {
+                "data": "cotiufv","name":"cotiufv"
+            }, {
+                "data": "fpOrigin","name":"fp_origin"
+            }],
+            "createdRow": function(row, data, index) {
+                if(data.pagado) {
+                    $('td', row).eq(2).html(moment(data.pagado).format('DD/MM/YYYY') + ' '+data.hora);
+                }
+                if(data.pagado) {
+                    $('td', row).eq(33).html(moment(data.fpOrigin).format('DD/MM/YYYY'));
+                }
+            },
+            "drawCallback": function(settings) {}
+        });
+        $('#tablaTramite').DataTable({
+            "dom": "<'row'<'col-sm-12'tr>><'row'<'col-sm-5 w3-tiny'i><'col-sm-7 w3-tiny'p>>",
+            "ajax": {
+                "type": "POST",
+                "url": "../infomunicipal/listarTramiteOrden",
+                "data": function(d) {
+                    d.id = dataResp.idSelected;
+                }
+            },
+            "ordering":true,
+            "order":[[0,'asc']],
+            "columns": [{
+                "data": "formulario","name":"formulario"
+            }, {
+                "data": "fecha","name":"fecha"
+            }, {
+                "data": "hora","name":"hora"
+            }, {
+                "data": "orden","name":"orden"
+            }, {
+                "data": "usuario","name":"usuario"
+            }, {
+                "data": "nombre","name":"nombre"
+            }, {
+                "data": "paterno","name":"paterno"
+            }, {
+                "data": "materno","name":"materno"
+            }],
+            "createdRow": function(row, data, index) {
+                if(data.fecha) {
+                    $('td', row).eq(2).html(moment(data.fecha).format('DD/MM/YYYY'));
+                }
+            },
+            "drawCallback": function(settings) {}
+        });
+    });
+
+</script>
+</section>
