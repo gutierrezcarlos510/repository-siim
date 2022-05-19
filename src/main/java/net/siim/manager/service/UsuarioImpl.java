@@ -168,7 +168,10 @@ public class UsuarioImpl extends DbConeccion implements UsuarioS {
 					}
 					if(roles!= null && roles.length > 0) {
 						for (int i = 0; i < roles.length; i++) {
-							db.queryForObject("select usurol_adicionar(?,?)",Boolean.class,codPer,roles[i]);
+							boolean res = db.queryForObject("select usurol_adicionar(?,?)",Boolean.class,codPer,roles[i]);
+							if(!res) {
+								throw new RuntimeException(Utils.errorAdd(ENTITY, "Error al adicionar rol"));
+							}
 						}
 					} else {
 						throw new RuntimeException(Utils.errorAdd(ENTITY, "Sin roles"));

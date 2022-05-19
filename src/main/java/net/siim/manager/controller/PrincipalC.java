@@ -39,7 +39,7 @@ public class PrincipalC {
 
 	@RequestMapping("login")
 	public String login(Model model){
-		model.addAttribute("msg","Sistema de Administraci&oacute;n y Control Comercial");
+		model.addAttribute("msg","Sistema de informacion del aplicativo SIIM");
 		return "principal/login" + MyConstant.SYSTEM;
 	}
 	public General getGeneralNow(List<GeneralWrap> generalWrapList) {

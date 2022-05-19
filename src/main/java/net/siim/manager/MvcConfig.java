@@ -35,7 +35,7 @@ public class MvcConfig implements WebMvcConfigurer {
      */
     public void addViewControllers(ViewControllerRegistry registry) {
 //        registry.addViewController("/error_403").setViewName("/error/403");
-        registry.addViewController("/").setViewName("redirect:principal/login");
+        registry.addViewController("/").setViewName("redirect:infomunicipal/infoGeneral");
     }
 
 //    @Bean

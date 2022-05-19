@@ -199,24 +199,23 @@
                             <img class="" src="/img/consulta_deuda.svg" width="100">
                         </div>
                     </div>
-                    <div class="row mb-4 px-3">
+                    <div class="row mb-4 px-3 areaForm">
                         <h2 class="col-12 mb-0 mr-4 mt-2 text-center">Formulario de Consulta</h2>
                     </div>
-                    <div class="row px-3"><label class="mb-1">
+                    <div class="row px-3 areaForm"><label class="mb-1">
                         <h6 class="mb-0 text-sm">Documento de identidad</h6>
                     </label> <input class="mb-4" type="text" id="documento" name="documento" autocomplete="off" placeholder="Escriba solo su numero de documento" >
                     </div>
-                    <div class="row px-3"><label class="mb-1">
+                    <div class="row px-3 areaForm"><label class="mb-1">
                         <h6 class="mb-0 text-sm">P.M.C.</h6>
                     </label> <input type="text" id="pmc" name="pmc" autocomplete="off" placeholder="Escriba su codigo PMC si es que lo tiene"></div>
-                    <div class="row mb-3 px-3 py-3">
+                    <div class="row mb-3 px-3 py-3 areaForm">
                         <div class="col-12 text-right">
                             <button type="submit" class="btn btn-blue text-center">CONSULTAR</button>
                         </div>
                     </div>
                 </div>
                 </form>
-                <br>
                 <div id="areaMensajeError" class="alert alert-danger" style="display: none;">
                 </div>
                 <table style="display: none;" id="tablaPersona" class="table table-sm">
@@ -231,12 +230,8 @@
                         <td colspan="2" aria-label="nombre" class="tdInfo"></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Paterno</td>
-                        <td colspan="2" aria-label="paterno" class="tdInfo"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Materno</td>
-                        <td colspan="2" aria-label="materno" class="tdInfo"></td>
+                        <td colspan="2">Apellidos</td>
+                        <td colspan="2" class="tdInfo"> <span aria-label="paterno"></span> <span aria-label="materno"></span></td>
                     </tr>
                 </table>
                 <table style="display: none;" id="tablaConsulta" class="table table-sm">
@@ -249,17 +244,23 @@
                     <tr>
                         <th>ID</th>
                         <th>Descripcion</th>
-                        <th>Gesti&oacute;n</th>
+                        <th style="text-align: right;">Gesti&oacute;n</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" style="text-align: right">
+                                <button class="btn btn-success" id="volver"> Volver a Consultar</button>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
         <div class="bg-blue py-4">
-            <div class="row px-3"><small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2022. Sistema desarrollado en Bermejo - Tarija - Bolivia por SIBOL</small>
-                <div class="social-contact ml-4 ml-sm-auto"><span class="fa fa-facebook mr-4 text-sm"></span> <span
-                        class="fa fa-google-plus mr-4 text-sm"></span></div>
+            <div class="row px-3"><small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2022. Sistema desarrollado en Bermejo - Tarija - Bolivia por Ing. Carlos G.</small>
+                <div class="social-contact ml-4 ml-sm-auto"><a href="../principal/login" title="Ingresar a Sistema"> Sistema <span class="fa fa-yelp mr-4 text-sm"></span></a></div>
             </div>
         </div>
     </div>
@@ -270,6 +271,12 @@
 <script src="/js/dev/loading.js"></script>
 <script src="/js/jquery.loadJSON.js"></script>
 <script type="text/javascript">
+    $('#volver').click(function(){
+        $('#areaMensajeError').hide();
+        $('#tablaPersona').hide(200);
+        $('#tablaConsulta').hide(300);
+        $('.areaForm').show(500);
+    });
     $("#formQuery").submit(function (e) {
         e.preventDefault(); // stops the default action
         $('#areaMensajeError').hide();
@@ -300,22 +307,23 @@
             data: $('#formQuery').serialize(),
             success: function (resp) {
                 Swal.fire({
-                    title: "Finalizado!",
+                    imageUrl: "/img/icon01.png",
+                    title: "Consulta Finalizada",
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 2000
                 });
                 $('#formQuery').trigger("reset");
                 if(resp.status) {
-                    console.log(resp.data);
                     if(resp.data && resp.data.length > 0) {
+                        $('.areaForm').hide(200);
                         $('#tablaPersona').loadJSON(resp.data[0]);
                         resp.data.forEach(it => {
                             if(it.ultimaGestion) {
-                                for (let i = it.ultimaGestion + 1; i < 2021; i++) {
+                                for (let i = it.ultimaGestion + 1; i < 2022; i++) {
                                     let row = $('<tr></tr>');
                                     $('<td>'+it.idInmu+'</td>').appendTo(row);
                                     $('<td>'+it.xtipoInmueble+'</td>').appendTo(row);
-                                    $('<td>'+i+'</td>').appendTo(row);
+                                    $('<td  style="text-align: right;">'+i+'</td>').appendTo(row);
                                     $('#tablaConsulta > tbody:last').append(row);
                                 }
                             } else {
@@ -339,6 +347,7 @@
             },
             error: function (jqXHR, exception) {
                 Swal.fire({
+                    imageUrl: "/img/icon01.png",
                     title: "Finalizado!",
                     showConfirmButton: false,
                     timer: 1000

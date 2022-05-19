@@ -133,6 +133,7 @@ public class InfoMunicipalC {
 	public @ResponseBody
 	DataResponse consulta(String documento,String pmc){
 		try {
+			Thread.sleep(3000);
 			return infoS.consultarDeuda(documento, pmc);
 		} catch (Exception e) {
 			return new DataResponse(false, e.getMessage());
