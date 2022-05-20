@@ -294,6 +294,20 @@
             });
             return;
         }
+        if(doc && doc.replaceAll(' ','').length < 6) {
+            Swal.fire({
+                title: "Invalido",
+                text: "Documento de identidad: Se requiere como minimo 6 caracteres"
+            });
+            return;
+        }
+        if(pmc && pmc.replaceAll(' ','').length < 6) {
+            Swal.fire({
+                title: "Invalido",
+                text: "P.M.C.: Se requiere como minimo 6 caracteres"
+            });
+            return;
+        }
         Swal.fire({
             title: "Consultando...",
             text: "Por favor espere",

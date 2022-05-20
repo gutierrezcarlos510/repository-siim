@@ -1,27 +1,18 @@
 package net.siim.manager;
 
 import net.siim.manager.util.MyConstant;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.file.Paths;
 
-//import com.viva.manager.Utiles.Constantes;
-
-
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
-    @Autowired
-    Environment environment;
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         WebMvcConfigurer.super.addResourceHandlers(registry);
-        String directoryFile = environment.getProperty("url");
-        System.out.println(directoryFile);
         String resourcePath = Paths.get(MyConstant.RUTA_AVATAR).toAbsolutePath().toUri().toString();
         registry.addResourceHandler(MyConstant.URL_PATH_AVATAR + "**").addResourceLocations(resourcePath);
         //Url para logo de empresa

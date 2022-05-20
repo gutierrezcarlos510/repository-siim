@@ -118,7 +118,7 @@ public class InfoMunicipalC {
 	@RequestMapping("reporte1")
 	public void plantilla1(HttpServletRequest request, HttpServletResponse response, String barrio,String typeReport) {
 		try {
-			String nameReport="informeDeudaPorBarrio",nameFile, reportUrl;
+			String nameReport="InformeDeudaPorBarrio",nameFile, reportUrl;
 			Map<String, Object> parametros;
 			reportUrl="/Reportes/"+nameReport+".jasper";
 			parametros = new HashMap<String, Object>();

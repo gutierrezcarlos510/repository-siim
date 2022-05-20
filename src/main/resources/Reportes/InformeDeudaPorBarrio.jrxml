@@ -135,6 +135,10 @@ where dg.barrio = $P{barrio}]]>
 		<property name="com.jaspersoft.studio.field.label" value="ultima_gestion"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
 	</field>
+	<field name="ant_const" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ant_const"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_deudor_gestion"/>
+	</field>
 	<field name="nombrecall" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nombrecall"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="satnombr"/>
@@ -160,7 +164,7 @@ where dg.barrio = $P{barrio}]]>
 				<text><![CDATA[No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="205" y="0" width="184" height="30" forecolor="#000000" uuid="ba230a23-528d-45c4-bc09-97161cf93727">
+				<reportElement style="Column header" positionType="Float" x="240" y="0" width="180" height="30" forecolor="#000000" uuid="ba230a23-528d-45c4-bc09-97161cf93727">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bf13e2-58e3-4219-8b9b-1de05323a53e"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -170,7 +174,7 @@ where dg.barrio = $P{barrio}]]>
 				<text><![CDATA[Nombre Completo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="389" y="0" width="60" height="30" forecolor="#000000" uuid="241e0cda-aa1e-4839-ae33-31481f791fb8">
+				<reportElement style="Column header" positionType="Float" x="420" y="0" width="60" height="30" forecolor="#000000" uuid="241e0cda-aa1e-4839-ae33-31481f791fb8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41edf0ad-a577-493e-bdb4-f45dd1716327"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -180,7 +184,7 @@ where dg.barrio = $P{barrio}]]>
 				<text><![CDATA[Documento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="449" y="0" width="34" height="30" forecolor="#000000" uuid="63a17f9b-8be9-4569-b35c-5661c76c5459">
+				<reportElement style="Column header" positionType="Float" x="480" y="0" width="35" height="30" forecolor="#000000" uuid="63a17f9b-8be9-4569-b35c-5661c76c5459">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67b0f38d-05cd-411d-8759-77312f83c164"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -190,7 +194,7 @@ where dg.barrio = $P{barrio}]]>
 				<text><![CDATA[Zona]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="484" y="0" width="95" height="30" forecolor="#000000" uuid="f7e0cd31-ba82-43ae-b17c-2dd8ae77ded6">
+				<reportElement style="Column header" positionType="Float" x="515" y="0" width="95" height="30" forecolor="#000000" uuid="f7e0cd31-ba82-43ae-b17c-2dd8ae77ded6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848500e6-32fb-4c77-8417-dcfdbb803255"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -200,7 +204,7 @@ where dg.barrio = $P{barrio}]]>
 				<text><![CDATA[Barrio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="579" y="0" width="223" height="30" forecolor="#000000" uuid="daf05caa-eec8-4af3-a3f4-b294620b9d54">
+				<reportElement style="Column header" positionType="Float" x="610" y="0" width="192" height="30" forecolor="#000000" uuid="daf05caa-eec8-4af3-a3f4-b294620b9d54">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5c3f586-f121-4546-9278-4a660f6023e9"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -218,7 +222,7 @@ where dg.barrio = $P{barrio}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="6" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Ultima Gestion]]></text>
+				<text><![CDATA[Anterior Gestion]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="60" y="0" width="110" height="30" forecolor="#000000" uuid="42b08540-8bed-49a7-ab28-582341afb366">
@@ -241,6 +245,17 @@ where dg.barrio = $P{barrio}]]>
 				</textElement>
 				<text><![CDATA[P.M.C.]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="205" y="0" width="35" height="30" forecolor="#000000" uuid="b33db331-f7c6-4a12-8344-1935a227356a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f7ea40e-0b7a-45e7-ab7f-838055399317"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ultima Gestion Pagado]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -255,7 +270,7 @@ where dg.barrio = $P{barrio}]]>
 				<textFieldExpression><![CDATA[$V{no}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="205" y="0" width="184" height="20" uuid="63bf76bd-4388-44bf-84ba-aa84f54a7d02">
+				<reportElement style="Detail" positionType="Float" x="240" y="0" width="180" height="20" uuid="63bf76bd-4388-44bf-84ba-aa84f54a7d02">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24bf13e2-58e3-4219-8b9b-1de05323a53e"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -266,7 +281,7 @@ where dg.barrio = $P{barrio}]]>
 				<textFieldExpression><![CDATA[$F{paterno}+" "+$F{materno}+" "+$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="389" y="0" width="60" height="20" uuid="871c5f02-64f8-4572-971b-0e2d31390688">
+				<reportElement style="Detail" positionType="Float" x="420" y="0" width="60" height="20" uuid="871c5f02-64f8-4572-971b-0e2d31390688">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41edf0ad-a577-493e-bdb4-f45dd1716327"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -275,7 +290,7 @@ where dg.barrio = $P{barrio}]]>
 				<textFieldExpression><![CDATA[$F{documento}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="449" y="0" width="34" height="20" uuid="642ceb46-d15a-46ae-b407-7a59812f5aa7">
+				<reportElement style="Detail" positionType="Float" x="480" y="0" width="35" height="20" uuid="642ceb46-d15a-46ae-b407-7a59812f5aa7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67b0f38d-05cd-411d-8759-77312f83c164"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -293,7 +308,7 @@ where dg.barrio = $P{barrio}]]>
 				<textFieldExpression><![CDATA[$F{id_inmu}+ " - "+$F{xtipo_inmueble}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="484" y="0" width="95" height="20" uuid="766de48d-8346-4f15-99f8-07bc531e2dfb">
+				<reportElement style="Detail" positionType="Float" x="515" y="0" width="95" height="20" uuid="766de48d-8346-4f15-99f8-07bc531e2dfb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848500e6-32fb-4c77-8417-dcfdbb803255"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -304,7 +319,7 @@ where dg.barrio = $P{barrio}]]>
 				<textFieldExpression><![CDATA[$F{xbarrio}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="579" y="0" width="223" height="20" uuid="24584aec-00b8-4f5b-81b0-9fdd3d92fe62">
+				<reportElement style="Detail" positionType="Float" x="610" y="0" width="192" height="20" uuid="24584aec-00b8-4f5b-81b0-9fdd3d92fe62">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5c3f586-f121-4546-9278-4a660f6023e9"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -323,7 +338,7 @@ where dg.barrio = $P{barrio}]]>
 					<font fontName="SansSerif" size="8" isBold="false"/>
 					<paragraph rightIndent="3"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ultima_gestion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ant_const}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="20" y="0" width="40" height="20" uuid="61e74fe6-1fc4-4bcd-a792-780a03957f4c">
@@ -333,6 +348,17 @@ where dg.barrio = $P{barrio}]]>
 					<font fontName="SansSerif" size="6" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="205" y="0" width="35" height="20" uuid="ff787686-5b6b-4650-878a-9f1a49ec6480">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb621f7b-624e-4421-a7cc-14c625a303c7"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ultima_gestion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
